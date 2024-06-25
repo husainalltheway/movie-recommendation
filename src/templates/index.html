@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            background: linear-gradient(270deg, #ffbd64, #ff5e62, #a86cbc, #4392f1, #7bc6cc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensures full viewport height */
+        }
+
+        .container {
+            text-align: center; /* Centers content inside the container */
+        }
+
+        form {
+            margin-top: 20px; /* Adds space between heading and form */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Movie Recommendation System</h1>
+        <form action="/recommend" method="post">
+            <div class="form-group">
+                <label for="user_id">Enter User ID:</label>
+                <input type="text" id="user_id" name="user_id" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Get Recommendations</button>
+        </form>
+
+        {% if recommendations %}
+            <h2 class="mt-4">Recommendations for User with user ID - {{ user_id }}</h2>
+            <ul>
+                {% for movie in recommendations %}
+                    <li>{{ movie }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
