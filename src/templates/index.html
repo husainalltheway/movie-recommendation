@@ -37,7 +37,7 @@
         </form>
 
         {% if recommendations %}
-            <h2 class="mt-4">Recommendations for User with user ID - {{ user_id }}</h2>
+            <h2 class="mt-4">Recommendations for User {{ user_id }}</h2>
             <ul>
                 {% for movie in recommendations %}
                     <li>{{ movie }}</li>
